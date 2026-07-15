@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1p4iyj1f3hgk"]
+
+[ext_resource type="Script" path="res://src/scripts/gameplay/terrain.gd"]
+
+[node name="Terrain" type="Node3D"]
+script = ExtResource("Script_1234")
+
+[node name="Ground" type="CSGBox3D" parent="."]
+size = Vector3(1000, 1, 1000)
+material_override = SubResource("StandardMaterial3D_1234")
+
+[node name="Grass" type="CSGBox3D" parent="."]
+size = Vector3(1000, 0.1, 1000)
+position = Vector3(0, 0.05, 0)
+material_override = SubResource("StandardMaterial3D_1235")

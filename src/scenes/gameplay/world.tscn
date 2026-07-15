@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1p4iyj1f3hgj"]
+
+[ext_resource type="Script" path="res://src/scripts/gameplay/world_manager.gd"]
+[ext_resource type="PackedScene" path="res://src/scenes/gameplay/placeholder_terrain.tscn"]
+
+[node name="World" type="Node3D"]
+script = ExtResource("Script_1234")
+
+[node name="Environment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1234")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107)
+shadow_enabled = true
+
+[node name="Terrain" parent="." instance=ExtResource("PackedScene_1234")]
+
+[node name="GameplayUI" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="Control" parent="GameplayUI"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
