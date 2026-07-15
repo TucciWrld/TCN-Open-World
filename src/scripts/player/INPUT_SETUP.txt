@@ -1,0 +1,13 @@
+# Add these input actions to project settings
+# ui_accept: Spacebar / Gamepad A
+# ui_cancel: Escape / Gamepad B
+# sprint: Shift / Gamepad LB
+# run: E / Gamepad LT
+# crouch: C / Gamepad Right Stick Button
+# roll: Q / Gamepad Y
+# jump: Spacebar / Gamepad A
+# attack: Left Mouse / Gamepad X
+# kick: K / Gamepad Y
+# aim: Right Mouse / Gamepad LT
+# zoom_in: Mouse Wheel Up / Gamepad Right Trigger
+# zoom_out: Mouse Wheel Down / Gamepad Left Trigger
