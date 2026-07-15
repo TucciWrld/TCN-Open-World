@@ -1,0 +1,133 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1p4iyj1f3hgh"]
+
+[ext_resource type="Script" path="res://src/scripts/ui/settings_menu.gd"]
+
+[node name="SettingsMenu" type="Control"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("Script_1234")
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.1, 0.1, 0.15, 1.0)
+
+[node name="Title" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.05
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = 0.0
+offset_right = 100.0
+offset_bottom = 50.0
+text = "SETTINGS"
+alignment = TextServer.HORIZONTAL_CENTER
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchor_left = 0.1
+anchor_top = 0.15
+anchor_right = 0.9
+anchor_bottom = 0.85
+
+[node name="SettingsVBox" type="VBoxContainer" parent="ScrollContainer"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="GraphicsLabel" type="Label" parent="ScrollContainer/SettingsVBox"]
+text = "GRAPHICS"
+
+[node name="QualityHBox" type="HBoxContainer" parent="ScrollContainer/SettingsVBox"]
+size_flags_vertical = 2
+
+[node name="QualityLabel" type="Label" parent="ScrollContainer/SettingsVBox/QualityHBox"]
+text = "Quality:"
+size_flags_horizontal = 3
+
+[node name="QualityOption" type="OptionButton" parent="ScrollContainer/SettingsVBox/QualityHBox"]
+item_count = 4
+popup/item_0/text = "Low"
+popup/item_1/text = "Medium"
+popup/item_2/text = "High"
+popup/item_3/text = "Ultra"
+selected = 1
+size_flags_horizontal = 3
+
+[node name="BrightnessHBox" type="HBoxContainer" parent="ScrollContainer/SettingsVBox"]
+size_flags_vertical = 2
+
+[node name="BrightnessLabel" type="Label" parent="ScrollContainer/SettingsVBox/BrightnessHBox"]
+text = "Brightness:"
+size_flags_horizontal = 3
+
+[node name="BrightnessSlider" type="HSlider" parent="ScrollContainer/SettingsVBox/BrightnessHBox"]
+min_value = 0.5
+max_value = 1.5
+value = 1.0
+size_flags_horizontal = 3
+
+[node name="AudioLabel" type="Label" parent="ScrollContainer/SettingsVBox"]
+text = "AUDIO"
+
+[node name="MasterVolumeHBox" type="HBoxContainer" parent="ScrollContainer/SettingsVBox"]
+size_flags_vertical = 2
+
+[node name="MasterVolumeLabel" type="Label" parent="ScrollContainer/SettingsVBox/MasterVolumeHBox"]
+text = "Master Volume:"
+size_flags_horizontal = 3
+
+[node name="MasterVolumeSlider" type="HSlider" parent="ScrollContainer/SettingsVBox/MasterVolumeHBox"]
+min_value = 0.0
+max_value = 1.0
+value = 0.8
+size_flags_horizontal = 3
+
+[node name="MusicVolumeHBox" type="HBoxContainer" parent="ScrollContainer/SettingsVBox"]
+size_flags_vertical = 2
+
+[node name="MusicVolumeLabel" type="Label" parent="ScrollContainer/SettingsVBox/MusicVolumeHBox"]
+text = "Music Volume:"
+size_flags_horizontal = 3
+
+[node name="MusicVolumeSlider" type="HSlider" parent="ScrollContainer/SettingsVBox/MusicVolumeHBox"]
+min_value = 0.0
+max_value = 1.0
+value = 0.6
+size_flags_horizontal = 3
+
+[node name="GameplayLabel" type="Label" parent="ScrollContainer/SettingsVBox"]
+text = "GAMEPLAY"
+
+[node name="FPSHBox" type="HBoxContainer" parent="ScrollContainer/SettingsVBox"]
+size_flags_vertical = 2
+
+[node name="FPSLabel" type="Label" parent="ScrollContainer/SettingsVBox/FPSHBox"]
+text = "Target FPS:"
+size_flags_horizontal = 3
+
+[node name="FPSOption" type="OptionButton" parent="ScrollContainer/SettingsVBox/FPSHBox"]
+item_count = 2
+popup/item_0/text = "30 FPS"
+popup/item_1/text = "60 FPS"
+selected = 0
+size_flags_horizontal = 3
+
+[node name="BackButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.9
+anchor_right = 0.5
+offset_left = -50.0
+offset_top = 0.0
+offset_right = 50.0
+offset_bottom = 50.0
+text = "BACK"
+
+[connection signal="item_selected" from="ScrollContainer/SettingsVBox/QualityOption" to="." method="_on_quality_changed"]
+[connection signal="value_changed" from="ScrollContainer/SettingsVBox/BrightnessHBox/BrightnessSlider" to="." method="_on_brightness_changed"]
+[connection signal="value_changed" from="ScrollContainer/SettingsVBox/MasterVolumeHBox/MasterVolumeSlider" to="." method="_on_master_volume_changed"]
+[connection signal="value_changed" from="ScrollContainer/SettingsVBox/MusicVolumeHBox/MusicVolumeSlider" to="." method="_on_music_volume_changed"]
+[connection signal="item_selected" from="ScrollContainer/SettingsVBox/FPSHBox/FPSOption" to="." method="_on_fps_changed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_pressed"]
