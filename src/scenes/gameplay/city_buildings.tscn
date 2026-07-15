@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1p4iyj1f3hgm"]
+
+[ext_resource type="Script" path="res://src/scripts/gameplay/city_buildings.gd"]
+
+[node name="Buildings" type="Node3D"]
+script = ExtResource("Script_1234")
+
+[node name="Building1" type="Node3D" parent="."]
+position = Vector3(300, 0, 300)
+
+[node name="Mesh" type="MeshInstance3D" parent="Building1"]
+mesh = SubResource("BoxMesh_1234")
+scale = Vector3(50, 60, 50)
+material_override = SubResource("StandardMaterial3D_1234")
+
+[node name="Building2" type="Node3D" parent="."]
+position = Vector3(-300, 0, 300)
+
+[node name="Mesh" type="MeshInstance3D" parent="Building2"]
+mesh = SubResource("BoxMesh_1234")
+scale = Vector3(40, 50, 40)
+material_override = SubResource("StandardMaterial3D_1235")
+
+[node name="Building3" type="Node3D" parent="."]
+position = Vector3(600, 0, 600)
+
+[node name="Mesh" type="MeshInstance3D" parent="Building3"]
+mesh = SubResource("BoxMesh_1234")
+scale = Vector3(45, 55, 45)
+material_override = SubResource("StandardMaterial3D_1236")
+
+[node name="Building4" type="Node3D" parent="."]
+position = Vector3(-600, 0, -600)
+
+[node name="Mesh" type="MeshInstance3D" parent="Building4"]
+mesh = SubResource("BoxMesh_1234")
+scale = Vector3(50, 65, 50)
+material_override = SubResource("StandardMaterial3D_1237")
+
+[node name="Building5" type="Node3D" parent="."]
+position = Vector3(900, 0, -300)
+
+[node name="Mesh" type="MeshInstance3D" parent="Building5"]
+mesh = SubResource("BoxMesh_1234")
+scale = Vector3(35, 45, 35)
+material_override = SubResource("StandardMaterial3D_1238")

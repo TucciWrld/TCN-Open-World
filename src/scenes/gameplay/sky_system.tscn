@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1p4iyj1f3hgl"]
+
+[ext_resource type="Script" path="res://src/scripts/gameplay/sky_system.gd"]
+
+[node name="SkySystem" type="Node3D"]
+script = ExtResource("Script_1234")
+
+[node name="SkyDome" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_1234")
+scale = Vector3(5000, 5000, 5000)
+material_override = SubResource("StandardMaterial3D_1234")
+
+[node name="CloudLayer1" type="Node3D" parent="."]
+position = Vector3(0, 200, 0)
+
+[node name="Cloud1" type="MeshInstance3D" parent="CloudLayer1"]
+position = Vector3(-500, 0, 0)
+mesh = SubResource("SphereMesh_1235")
+scale = Vector3(100, 50, 100)
+material_override = SubResource("StandardMaterial3D_1235")
+
+[node name="Cloud2" type="MeshInstance3D" parent="CloudLayer1"]
+position = Vector3(0, 20, -200)
+mesh = SubResource("SphereMesh_1235")
+scale = Vector3(120, 60, 150)
+material_override = SubResource("StandardMaterial3D_1235")
+
+[node name="Cloud3" type="MeshInstance3D" parent="CloudLayer1"]
+position = Vector3(600, -10, -100)
+mesh = SubResource("SphereMesh_1235")
+scale = Vector3(80, 40, 90)
+material_override = SubResource("StandardMaterial3D_1235")
+
+[node name="CloudLayer2" type="Node3D" parent="."]
+position = Vector3(0, 300, 0)
+
+[node name="Cloud1" type="MeshInstance3D" parent="CloudLayer2"]
+position = Vector3(400, 0, 300)
+mesh = SubResource("SphereMesh_1235")
+scale = Vector3(110, 55, 110)
+material_override = SubResource("StandardMaterial3D_1235")
+
+[node name="Cloud2" type="MeshInstance3D" parent="CloudLayer2"]
+position = Vector3(-300, -30, 100)
+mesh = SubResource("SphereMesh_1235")
+scale = Vector3(90, 45, 100)
+material_override = SubResource("StandardMaterial3D_1235")

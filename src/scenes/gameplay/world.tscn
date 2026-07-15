@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1p4iyj1f3hgj"]
+[gd_scene load_steps=8 format=3 uid="uid://c1p4iyj1f3hgj"]
 
 [ext_resource type="Script" path="res://src/scripts/gameplay/world_manager.gd"]
-[ext_resource type="PackedScene" path="res://src/scenes/gameplay/placeholder_terrain.tscn"]
+[ext_resource type="PackedScene" path="res://src/scenes/gameplay/terrain.tscn"]
+[ext_resource type="PackedScene" path="res://src/scenes/gameplay/sky_system.tscn"]
+[ext_resource type="PackedScene" path="res://src/scenes/gameplay/city_buildings.tscn"]
+[ext_resource type="PackedScene" path="res://src/scenes/gameplay/vegetation.tscn"]
+[ext_resource type="PackedScene" path="res://src/scenes/gameplay/player_spawn.tscn"]
 
 [node name="World" type="Node3D"]
 script = ExtResource("Script_1234")
@@ -10,10 +14,109 @@ script = ExtResource("Script_1234")
 environment = SubResource("Environment_1234")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107)
+transform = Transform3D(0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, -0.75, 0.433013)
+light_energy_multiplier = 1.5
 shadow_enabled = true
+shadow_blur = 2
+script = ExtResource("Script_1235")
 
-[node name="Terrain" parent="." instance=ExtResource("PackedScene_1234")]
+[node name="Sky" parent="." instance=ExtResource("PackedScene_1234")]
+
+[node name="Terrain" parent="." instance=ExtResource("PackedScene_1235")]
+
+[node name="Roads" type="Node3D" parent="."]
+
+[node name="MainRoad" type="CSGBox3D" parent="Roads"]
+size = Vector3(2000, 0.2, 100)
+position = Vector3(0, 0.1, 0)
+material_override = SubResource("StandardMaterial3D_1234")
+
+[node name="SideRoad1" type="CSGBox3D" parent="Roads"]
+size = Vector3(100, 0.2, 1500)
+position = Vector3(500, 0.1, 300)
+material_override = SubResource("StandardMaterial3D_1234")
+
+[node name="SideRoad2" type="CSGBox3D" parent="Roads"]
+size = Vector3(100, 0.2, 1500)
+position = Vector3(-500, 0.1, 300)
+material_override = SubResource("StandardMaterial3D_1234")
+
+[node name="Sidewalks" type="Node3D" parent="."]
+
+[node name="SidewalkN" type="CSGBox3D" parent="Sidewalks"]
+size = Vector3(2000, 0.15, 30)
+position = Vector3(0, 0.08, 65)
+material_override = SubResource("StandardMaterial3D_1235")
+
+[node name="SidewalkS" type="CSGBox3D" parent="Sidewalks"]
+size = Vector3(2000, 0.15, 30)
+position = Vector3(0, 0.08, -65)
+material_override = SubResource("StandardMaterial3D_1235")
+
+[node name="Buildings" parent="." instance=ExtResource("PackedScene_1236")]
+
+[node name="Vegetation" parent="." instance=ExtResource("PackedScene_1237")]
+
+[node name="StreetLights" type="Node3D" parent="."]
+
+[node name="StreetLight1" type="Node3D" parent="StreetLights"]
+position = Vector3(300, 5, 100)
+script = ExtResource("Script_1236")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="StreetLights/StreetLight1"]
+light_energy_multiplier = 2.0
+omni_range = 30.0
+
+[node name="Mesh" type="MeshInstance3D" parent="StreetLights/StreetLight1"]
+mesh = SubResource("CylinderMesh_1234")
+material_override = SubResource("StandardMaterial3D_1236")
+
+[node name="StreetLight2" type="Node3D" parent="StreetLights"]
+position = Vector3(-300, 5, 100)
+script = ExtResource("Script_1236")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="StreetLights/StreetLight2"]
+light_energy_multiplier = 2.0
+omni_range = 30.0
+
+[node name="Mesh" type="MeshInstance3D" parent="StreetLights/StreetLight2"]
+mesh = SubResource("CylinderMesh_1234")
+material_override = SubResource("StandardMaterial3D_1236")
+
+[node name="TrafficLights" type="Node3D" parent="."]
+
+[node name="TrafficLight1" type="Node3D" parent="TrafficLights"]
+position = Vector3(550, 3, 0)
+
+[node name="TrafficLightDisplay" type="MeshInstance3D" parent="TrafficLights/TrafficLight1"]
+mesh = SubResource("BoxMesh_1234")
+material_override = SubResource("StandardMaterial3D_1237")
+script = ExtResource("Script_1237")
+
+[node name="Parks" type="Node3D" parent="."]
+
+[node name="Park1" type="Node3D" parent="Parks"]
+position = Vector3(800, 0, 500)
+script = ExtResource("Script_1238")
+
+[node name="Ground" type="CSGBox3D" parent="Parks/Park1"]
+size = Vector3(300, 0.1, 300)
+material_override = SubResource("StandardMaterial3D_1238")
+
+[node name="Benches" type="Node3D" parent="Parks/Park1"]
+
+[node name="Bench1" type="CSGBox3D" parent="Parks/Park1/Benches"]
+size = Vector3(2, 0.5, 1)
+position = Vector3(-50, 0.5, 50)
+material_override = SubResource("StandardMaterial3D_1239")
+
+[node name="Bench2" type="CSGBox3D" parent="Parks/Park1/Benches"]
+size = Vector3(2, 0.5, 1)
+position = Vector3(50, 0.5, 50)
+material_override = SubResource("StandardMaterial3D_1239")
+
+[node name="PlayerSpawn" parent="." instance=ExtResource("PackedScene_1238")]
+position = Vector3(0, 5, 0)
 
 [node name="GameplayUI" type="CanvasLayer" parent="."]
 
@@ -22,3 +125,27 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+
+[node name="Health" type="Label" parent="GameplayUI/HUD"]
+anchor_left = 0.02
+anchor_top = 0.05
+anchor_right = 0.15
+anchor_bottom = 0.1
+text = "Health: 100"
+text_size = 24
+
+[node name="Money" type="Label" parent="GameplayUI/HUD"]
+anchor_left = 0.02
+anchor_top = 0.12
+anchor_right = 0.15
+anchor_bottom = 0.17
+text = "Money: $0"
+text_size = 24
+
+[node name="Position" type="Label" parent="GameplayUI/HUD"]
+anchor_left = 0.02
+anchor_top = 0.19
+anchor_right = 0.25
+anchor_bottom = 0.24
+text = "Position: (0, 0, 0)"
+text_size = 20

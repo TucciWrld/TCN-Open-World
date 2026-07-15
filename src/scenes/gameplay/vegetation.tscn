@@ -1,0 +1,82 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1p4iyj1f3hgn"]
+
+[ext_resource type="Script" path="res://src/scripts/gameplay/vegetation.gd"]
+
+[node name="Vegetation" type="Node3D"]
+script = ExtResource("Script_1234")
+
+[node name="TreesNorth" type="Node3D" parent="."]
+position = Vector3(0, 0, -800)
+
+[node name="Tree1" type="Node3D" parent="TreesNorth"]
+position = Vector3(-200, 0, 0)
+
+[node name="Trunk" type="MeshInstance3D" parent="TreesNorth/Tree1"]
+mesh = SubResource("CylinderMesh_1234")
+scale = Vector3(5, 30, 5)
+material_override = SubResource("StandardMaterial3D_1234")
+
+[node name="Foliage" type="MeshInstance3D" parent="TreesNorth/Tree1"]
+position = Vector3(0, 25, 0)
+mesh = SubResource("SphereMesh_1234")
+scale = Vector3(20, 25, 20)
+material_override = SubResource("StandardMaterial3D_1235")
+
+[node name="Tree2" type="Node3D" parent="TreesNorth"]
+position = Vector3(0, 0, 0)
+
+[node name="Trunk" type="MeshInstance3D" parent="TreesNorth/Tree2"]
+mesh = SubResource("CylinderMesh_1234")
+scale = Vector3(5, 30, 5)
+material_override = SubResource("StandardMaterial3D_1234")
+
+[node name="Foliage" type="MeshInstance3D" parent="TreesNorth/Tree2"]
+position = Vector3(0, 25, 0)
+mesh = SubResource("SphereMesh_1234")
+scale = Vector3(20, 25, 20)
+material_override = SubResource("StandardMaterial3D_1235")
+
+[node name="Tree3" type="Node3D" parent="TreesNorth"]
+position = Vector3(200, 0, 0)
+
+[node name="Trunk" type="MeshInstance3D" parent="TreesNorth/Tree3"]
+mesh = SubResource("CylinderMesh_1234")
+scale = Vector3(5, 30, 5)
+material_override = SubResource("StandardMaterial3D_1234")
+
+[node name="Foliage" type="MeshInstance3D" parent="TreesNorth/Tree3"]
+position = Vector3(0, 25, 0)
+mesh = SubResource("SphereMesh_1234")
+scale = Vector3(20, 25, 20)
+material_override = SubResource("StandardMaterial3D_1235")
+
+[node name="TreesSouth" type="Node3D" parent="."]
+position = Vector3(0, 0, 800)
+
+[node name="Tree1" type="Node3D" parent="TreesSouth"]
+position = Vector3(-300, 0, 0)
+
+[node name="Trunk" type="MeshInstance3D" parent="TreesSouth/Tree1"]
+mesh = SubResource("CylinderMesh_1234")
+scale = Vector3(5, 30, 5)
+material_override = SubResource("StandardMaterial3D_1234")
+
+[node name="Foliage" type="MeshInstance3D" parent="TreesSouth/Tree1"]
+position = Vector3(0, 25, 0)
+mesh = SubResource("SphereMesh_1234")
+scale = Vector3(20, 25, 20)
+material_override = SubResource("StandardMaterial3D_1235")
+
+[node name="Tree2" type="Node3D" parent="TreesSouth"]
+position = Vector3(100, 0, 0)
+
+[node name="Trunk" type="MeshInstance3D" parent="TreesSouth/Tree2"]
+mesh = SubResource("CylinderMesh_1234")
+scale = Vector3(5, 30, 5)
+material_override = SubResource("StandardMaterial3D_1234")
+
+[node name="Foliage" type="MeshInstance3D" parent="TreesSouth/Tree2"]
+position = Vector3(0, 25, 0)
+mesh = SubResource("SphereMesh_1234")
+scale = Vector3(20, 25, 20)
+material_override = SubResource("StandardMaterial3D_1235")
