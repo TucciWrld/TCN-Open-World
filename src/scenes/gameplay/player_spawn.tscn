@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1p4iyj1f3hgo"]
+
+[ext_resource type="Script" path="res://src/scripts/gameplay/player_spawn.gd"]
+
+[node name="PlayerSpawn" type="Node3D"]
+script = ExtResource("Script_1234")
+
+[node name="SpawnMarker" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_1234")
+scale = Vector3(2, 2, 2)
+material_override = SubResource("StandardMaterial3D_1234")
