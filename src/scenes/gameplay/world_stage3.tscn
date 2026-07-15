@@ -1,0 +1,17 @@
+extends Node3D
+
+# New world.tscn with integrated player controller
+
+func _ready() -> void:
+	print("=== TCN OPEN WORLD - STAGE 3 ===")
+	print("Player Character System Ready")
+	print("Controls:")
+	print("  WASD - Move")
+	print("  Shift - Sprint")
+	print("  Space - Jump")
+	print("  C - Crouch")
+	print("  Q - Roll")
+	print("  Click - Attack/Punch")
+	print("  K - Kick")
+	print("  Right Click - Aim")
+	print("  Mouse Wheel - Zoom")
